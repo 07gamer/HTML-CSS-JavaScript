@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在HTML中插入js代码的第三种方式：引入外部独立的js文件</title>
+
+</head>
+<body>
+    <!--在引入外部独立的js文件的时候
+       1、外部文件中的js代码会遵循自上而下的原则顺序执行
+       2、同一个js文件可以被同时引入多次，但在实际开发中很少使用
+       3、js的结束标签必须有
+    -->
+    <script type="text/javascript" src = "JS_3.js">
+
+        window.alert("this is test message")  //这行代码根本不会被执行
+    </script>
+</body>
+</html>

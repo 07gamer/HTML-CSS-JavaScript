@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS函数初步</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        Java中函数有重载的机制 但是在JS中没有 JS中如果有定义同名函数 那么后面是函数会将前面定义的函数覆盖
+
+        但是JS定义了一个函数之后 能给这个函数传任意的形参
+         */
+        function sum(a,b) {
+            return a+b
+        }
+
+        //调用函数
+        var result1 = sum(1,2);
+        alert(result1);
+
+        var result2 = sum(1,2,3);
+        alert(result2);    //结果为3 JS自动把后面那个3给忽略了
+
+        var result3 = sum("theshy");
+        alert(result3);   //结果为 theshyundefine  theshy赋值给a，b没有赋值 JS默认为undefined
+
+        var result4 = sum();
+        alert(result4)     //结果为NaN  NaN也是一个具体存在的值 这个值的意思表示不是数字  Not  a Number
+
+        function sum(a,b,c) {
+            return a + b + c;
+        }
+
+        var result5 = sum(10,12,12)
+        alert(result5);
+        alert(result1);//不管上面还想下面的result1 都变为了NaN 也就是说写了这个同名函数之后 上面的sum函数全局失效
+
+    </script>
+</body>
+</html>

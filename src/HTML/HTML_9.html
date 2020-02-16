@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接！特别重要！</title>
+    <!--超链接的作用：
+                       通过超链接可以从浏览器向服务器发送请求
+                       浏览器向服务器发送数据（请求:request）
+                       服务器向浏览器发送数据（相应：response
+
+                       B/S结构的系统：每一个请求对应一个响应）
+                       B---请求---》S
+                       S《----响应----B
+
+                       超链接和用户直接在地址栏上输入地址没有区别，都是向服务器发送请求
+                       -->
+</head>
+<body>
+<!--超链接的特点
+1、有下划线
+2、鼠标停留在超链接上时候有小手
+3、点击鼠标后可以跳转界面
+-->
+
+<a href="https://www.baidu.com/">百度翻译</a>
+<a href="bd_logo1.png">百度图片</a>
+<a href="HTML_1.html">HTML_1</a>
+
+<!--href ：hot reference 热引用
+href 后面一定跟 一个资源地址 可以是绝对路径也可以是相对路径，可以是网络中的某个资源，也可以是本地资源路径-->
+<br><br><br>
+<!--可以制作图片超链接，就是点图片可以跳转-->
+<a href="https://www.baidu.com/">
+    <img src="bd_logo1.png">
+</a>
+
+<!--超链接有一个target属性，可取值
+_blank:新窗口
+_self:当前窗口（默认
+_top:顶级窗口
+_parent:父窗口
+-->
+
+<a href="https://www.baidu.com/" target="_blank">
+    <img src="bd_logo1.png">
+</a>
+</body>
+</html>

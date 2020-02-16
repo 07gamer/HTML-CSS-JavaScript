@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS函数初步</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //JS中的函数和Java有所不同 有两种语法格式
+        /*
+        * 第一种方式： function 函数名（形参列表）{
+        *                   函数体；
+        *              }‘
+        *
+        * 第二种方式：函数名= function（形参列表）{
+        *                   函数体；
+        *               }
+        * */
+
+
+        //第一种
+        function sum(a,b) {
+            alert(a + b);
+        }
+
+        //函数不会自己执行 当函数被调用的时候才会执行
+        sum(10,20); //30
+
+        //第二种写法
+        sayHello = function (name) {
+            alert("hello!" + name)
+        }
+
+        sayHello("zhangsan")
+
+    </script>
+
+        <!--添加一个按钮来触发函数 由于添加按钮的功能不在JS代码中 所以要写在标签外面，注意onclick后面的写法-->
+        <input type="button" value="click me say hello" onclick="sayHello('wangwu')">
+
+</body>
+</html>

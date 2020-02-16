@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中嵌入js代码的第二种方式：代码块 （脚本块）</title>
+
+    <!--CSS样式块-->
+    <style type="text/css">
+        /*
+               这里插入css代码
+        */
+    </style>
+
+    <!--JS代码样式块-->
+    <script type="text/javascript">
+        window.alert("this is js code block")
+    </script>
+
+</head>
+<body>
+    <input type="button" value="this is btn1" /> <!--这行代码会等代码块执行完之后才能执行，也就是说代码块优先级最高-->
+
+    <!--在下面插入一个代码块-->
+    <script type="text/javascript" >
+        /*这里面就是放代码块 注释和html注释不太一样
+        * 暴露在代码块当中的代码会在浏览器开启时候自上而下的执行，这种执行不需要事件
+        * */
+        window.alert("this is message 1");
+        window.alert("this is message 2");
+    </script>
+    <input type="button" value="this is btn1" />
+</body>
+</html>

@@ -1,0 +1,12 @@
+a{
+    text-decoration: red;
+}
+
+/*
+    cursor 鼠标样式;  pointer 小手样式； hand 小手样式 （可能会产生兼容问题，建议使用pointer）
+*/
+
+#baiduspan{
+    text-decoration: underline;
+    cursor: pointer;
+}

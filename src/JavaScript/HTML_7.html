@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS中全局变量与局部变量</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //全局变量
+        var i = 100;
+        function printI() {
+            alert("i = " + i); //这里访问的是全局变量i
+        }
+
+        var name = "zhangsan";
+        function printName() {
+            var name = "uzi"; //这是局部变量
+            alert("name = " + name);//就近原则 这里访问了局部变量
+        }
+
+        //调用函数 函数若不被调用则不会执行
+        printI();
+        printName();
+
+        function printAge() {
+            var age = 22;
+            alert("age = " + age);
+        }
+
+        //alert("age = " + age);   //这样写是不对的 因为age属于函数里的局部变量 外面访问不到
+
+        //以下有一个很奇怪的语法 尽量不这么用
+        function myfun() {
+            myname = "ming"; //没有用var声明的就是全局变量，无论在哪里都是全局变量
+        }
+
+        myfun(); //调用一下函数否则里面不会生效
+        alert("我看起来像局部变量其实是全局变量的myname ：" + myname);
+
+    </script>
+</body>
+</html>

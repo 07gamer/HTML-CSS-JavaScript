@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册表单</title>
+</head>
+<body>
+<!--用户信息包括：
+                用户名
+                密码
+                确认密码
+                性别
+                兴趣爱好
+                学历
+                简介
+                -->
+
+<!--1、画一个表单-->
+<form action="http://www.baidu.com">
+    用户名<input type="text" name="username"/>
+    <br>
+
+    密码<input type="password" name="userpsw"/>
+    <br>
+
+    确认密码<input type="password" /> <!--确认密码功能需要js实现，这里先不吸烟时-->
+    <br>
+
+    性别
+    <input type="radio" name="gender" value="1" checked/>男  <!--checked 表示默认选中-->
+    <input type="radio" name="gender" value="0"/>女
+    <br>
+
+    兴趣爱好
+    <input type="checkbox" name="hobby" value="smoke"/>抽烟
+    <input type="checkbox" name="hobby" value="study" checked/>学习
+    <input type="checkbox" name="hobby" value="play"/>玩
+    <br>
+
+    <!--下拉列表-->
+    学历
+    <select name="grade">
+        <option value="gz">高中</option>
+        <option value="dz">大专</option>
+        <option value="bk">本科</option>
+        <option value="yjs">研究生</option>
+    </select>
+    <br>
+
+    个人简介
+    <!--文本域，文本域和文本框一样没有value属性，用户填写的就是value-->
+    <br>
+    <textarea rows="10" cols="50" name="introduce">
+
+    </textarea>
+    <br>
+
+    <input type="submit" value="提交">
+    <input type="reset" value="清空">
+</form>
+</body>
+</html>
