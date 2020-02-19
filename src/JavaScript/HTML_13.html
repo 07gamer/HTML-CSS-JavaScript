@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object类型</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        Object类型：
+            1，Object类是所有类型的超类，自定义的任何数据类型，默认继承Object
+            2，Object类主要属性：
+                            prototype属性:常用，作用是给类动态的扩展属性和函数
+                            constructor属性
+            3，Object包括哪些函数：
+                            toString()
+                            valueof()
+                            toLocaleString()
+            4,在JS当中定义的类默认继承Object，也会继承Object类中所有的属性和函数，换句话说，自己定义的类也有prototype属性
+
+            5，在JS中怎么定义一个类 怎么new一个对象？
+            定义一个类的语法：function 类名(形参){
+
+                               }
+
+                              类名 = function(形参){
+
+                              }、
+
+             创建对象的语法
+                            new 构造方法名(实参);
+         */
+
+        function sayHello() {
+
+        }
+
+        //把sayHello当成一个普通的函数来使用
+        sayHello();
+
+        //可以把sayHello当做当做一个类来创建对象
+        var obj = new sayHello();//这里的对象名obj就是一个引用，保存了内存地址指向了堆中的对象
+
+        //所以我们来定义一个学生类
+        function Student() {
+            alert("this is a class of Student")
+        }
+
+        //可以把这个Student当成方法使用
+        Student();
+        //当做一个类来用
+        var stu = new Student();
+        alert(stu);//[object Object]
+
+        //JS中类的定义，同时也是一个构造函数的定义，在JS中类的定义和构造函数的定义是放在一起来完成的
+        function User(name,number) {//name和number是形参  属于局部变量
+            //类中有两个属性userName和sno，this表示当前对象
+            this.userName = name;
+            this.sno = number;
+        }
+
+        //创建对象
+        var user1 = new User("zhangsan",1001);
+
+        //访问对象的属性
+        alert("hello！" + user1.userName);
+        alert("your age is " + user1.sno);
+
+        //访问对象属性还可以使用以下方法
+        alert(user1["userName"]);
+        alert(user1["sno"]);
+
+        Emp = function (ename,sal) {
+            //属性
+            this.ename = ename;
+            this.sal = sal;
+        }
+
+        var emp1 = new Emp("zhangsansan",10001)
+        alert(emp1.ename + emp1["sal"]);
+    </script>
+</body>
+</html>

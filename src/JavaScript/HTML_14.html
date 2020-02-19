@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object中的prototype属性</title>
+</head>
+<body>
+    <script type="text/javascript">
+        Product = function (pno,pname,price) {
+            this.pno = pno;
+            this.pname = pname;
+            this.price = price;
+
+            this.getPrice = function () {
+                return this.price
+            }
+        }
+
+        var pro = new Product(1001,"watermelon",4.0);
+        var  pri = pro.getPrice();
+        alert(pri + "元");
+
+        //可以通过prototype属性来动态的给类扩展属性以及函数(个人理解就是一个类定义好之后可以再次定义)
+        Product.prototype.getName = function () {
+            return this.pname
+        }
+
+        var pname = pro.getName();
+        alert("商品的名字是：" + pro.getName())
+
+        //可以给任意的一个类扩展函数，包括String
+        String.prototype.myFun = function () {
+            alert("this is a self define function")
+        }
+
+        var str = "acb";
+        str.myFun();
+
+    </script>
+</body>
+</html>

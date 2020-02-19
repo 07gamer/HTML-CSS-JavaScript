@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String类型</title>
+</head>
+<body>
+        <script type="text/javascript">
+            /*
+            String类型
+                1，在JS中，字符串可以使用双引号也可以使用单引号
+                2，两种方法创建String对象  var str = “abc”     var str = new String（“abc”）
+                需要注意的是String是JS中的一种内置类，可以直接使用  String的父类是Object
+                3，无论大3String还是小string，他们的属性和函数都是通用的
+                4，关于String类型常用的属性和函数
+                常用属性：length 获取字符串长度
+                常用函数：
+                            indexOf         获取指定字符串在当前字符串中第一次出现处的索引 没有则返回-1
+                            lastIndexOf     获取指定字符串在当前字符串中最后一次出现的索引
+                            replace         替换一次
+                            substr          截取子字符串
+                            substring       截取子字符串 和上面不同
+                            toLowerCase     转换为小写
+                            toUpCase        转换为大写
+                            split           拆分字符串
+             */
+
+            //演示大小string的区别
+            var str1 = "abcd";
+            alert(typeof str1);//"string"
+
+            var str2 = new String("abc");
+            alert(typeof str2);//"object"
+
+            //获取字符串长度
+            alert(str1.length);//4
+            alert(str2.length);//3
+
+            //indexOf()
+            var str3 = "http://www.baidu.com/";
+            alert(str3.indexOf("https"));//-1
+            alert(str3.indexOf("http"))//0
+            //判断一个字符串是否包含某个字串?
+            alert(str3.indexOf("baidu") > 0 ? "包含" :"不包含");
+
+            //replace,只能替换一个，想要全部替换要使用正则表达式
+            alert(str3.replace("w","o"));
+
+            //substr和substring的区别
+            //substr(startIndex,length);
+            alert("1234567".substr(2,4));//3456 从第2+1个位置截取4个字符
+            //substring(startIndex,endIndex);且不包含endIndex
+            alert("01234567".substring(2,4));//23  从第三个位置截取到第四个位置（不包含第四个）
+
+
+
+
+        </script>
+</body>
+</html>

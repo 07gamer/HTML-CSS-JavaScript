@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>合并单元格</title>
+</head>
+
+<body>
+
+<h1>合并前的表格</h1>
+<table border="2px" width="200" >
+    <tr >
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+
+    <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+    </tr>
+</table>
+
+<hr color="red" width="100%">
+<h1>行合并后的表格</h1>
+<table border="2px" width="200" >
+    <tr >
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td rowspan="2">3A</td>  <!--rowspan是行合并-->
+    </tr>
+
+    <tr>
+
+        <td>B</td>
+        <td>C</td>
+    </tr>
+</table>
+
+
+<hr color="red" width="100%">
+<h1>列合并后的表格</h1>
+<table border="2px" width="200" >
+    <tr >
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td rowspan="5">3</td>  <!--rowspan是行合并-->
+    </tr>
+
+    <tr>
+
+        <td>B</td>
+        <td colspan="2">C</td><!--colspan是行合并-->
+    </tr>
+</table>
+</body>
+
+</html>

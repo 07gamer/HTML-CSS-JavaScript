@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number类型</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        1:Number类型包括哪些值？
+       -1  0  1  1.2  3.14  100    NaN  Infinitely
+
+       2：isNaN() ：结果为true表示这不是一个数字（is not a number），结果为false表示这是一个数字
+
+       3：parseInt()
+       4:parseFloat()
+       5:Math.ceil()   向上取整
+        */
+
+
+        var x1 = 1;
+        var x2 = 1.2;
+        var x3 = 3.14;
+        var x4 = -1;
+        var x5 = NaN;
+        var x6 = Infinity;
+
+        alert(typeof x1);
+        alert(typeof x2);
+        alert(typeof x3);
+        alert(typeof x4);
+        alert(typeof x5);
+        alert(typeof x6);
+
+        //关于NaN（表示Not a NUmber ， 不是数字，单数Number）
+        var a = 100;
+        var b = "你好"
+        alert(a/b);//数字除以不是数字 得到的结果就是NaN
+
+        var c = "qwe";
+        var f = 10;
+        alert(c + f);//"qwe10"
+
+
+        var x = 10;
+        var y = 0;
+        alert(x/y);  //得到Infinity 无穷大
+
+        //除不尽时
+        alert(10/3);//3.3333333335
+
+        //关于isNaN函数
+        function sum(a,b) {
+            if(isNaN(a) || isNaN(b)){
+                alert("参与计算的必须为数字")
+                return
+            }
+
+            return a + b;
+        }
+
+        //关于parseInt函数：可以将字符串自动转换为数字，并且取整数位
+        alert(parseInt("4.555555"));//4
+        alert(parseInt(4.5555555555));//4
+
+        //关于parseFloat()：可以将字符串转换为数字
+        alert(parseFloat("4.555555555"));
+        alert(parseFloat(4.5555));
+        alert(parseFloat("1.1") + 1);
+
+
+        //Math.ceil()  向上取整
+        alert(Math.ceil(4.1));//5
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

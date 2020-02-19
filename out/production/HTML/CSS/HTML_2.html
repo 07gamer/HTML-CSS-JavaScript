@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中引入css样式的第二种方式：样式块</title>
+
+    <style type="text/css">
+        /*这是css的注释*/
+        /*1，id选择器
+                    语法格式：
+                    #id{
+                        样式名：样式值；
+                        样式名：样式值；
+                        样式名：样式值；
+                        ...
+                    }*/
+        #usernameER{
+            color: red;
+            font-size: 25px;
+        }
+
+        /*2、标签选择器
+        语法格式：
+                    #标签名{
+                        样式名：样式值；
+                        样式名：样式值；
+                        样式名：样式值；
+                        ...
+                    }
+                    标签选择器的作用范围比id选择器广，一下子选中所有标签    */
+        div{
+            background-color: yellow;
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+
+        /*3、类选择器
+         语法格式：
+                     .类名{
+                         样式名：样式值；
+                         样式名：样式值；
+                         样式名：样式值；
+                         ...
+                     }*/
+        .student{
+            border: 1px solid yellow;
+            width: 400px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--id选择器-->
+<span id = "usernameER">对不起，你的id不能为空！</span>
+<br><br><br>
+
+<!--标签选择器-->
+<div></div>
+<div></div>
+
+
+<!--类选择器-->
+<select class="student">
+    <option>本科</option>
+    <option>博士</option>
+</select>
+
+
+</body>
+</html>

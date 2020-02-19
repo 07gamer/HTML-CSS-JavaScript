@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于JS中的变量</title>
+</head>
+
+<body>
+<script type="text/javascript">
+    /*
+i后面可以存放任意类型的数据  当i没有赋值的时候 系统会给i赋一个默认值 undefined 这是一个具体存在的值！！
+*/
+    var i = 100;
+    i = false;
+    i = "abc";
+    i = new Object();
+    i = 3.14;
+
+    var a;
+    alert("a = " + a);  //a = undefine
+
+    //若一个变量没有定义直接访问,这是错误的写法
+    //alert(age);
+
+    var a,b,c = 200;
+    alert("a = " + a); //undefine
+    alert("b = " + b);//undefine
+    alert("c = " + c);//200
+
+</script>
+</body>
+</html>
