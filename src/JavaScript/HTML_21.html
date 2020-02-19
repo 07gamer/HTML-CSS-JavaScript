@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS代码捕捉回车键</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function () {
+            var usernameElt = document.getElementById("username")
+            usernameElt.onkeydown = function (ev) {
+                if(ev.keyCode === 13){
+                    alert("正在进行验证。。。。。。")
+                }
+            }
+        }
+    </script>
+
+    <input type="text" id = "username">
+</body>
+</html>

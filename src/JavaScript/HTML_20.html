@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改节点对象属性</title>
+</head>
+<body>
+        <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("mybtn").onclick = function () {
+                    var t = document.getElementById("mytext");
+                    t.type = "checkbox";
+                }
+            }
+
+        </script>
+
+        <input type="text" id = "mytext">
+        <input type="button" value="change" id = "mybtn">
+</body>
+</html>

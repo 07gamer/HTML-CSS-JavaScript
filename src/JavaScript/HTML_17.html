@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS注册事件的第二种方式</title>
+</head>
+<body>
+    <!--注册事件的第二种方式，要先注册id才能进行-->
+    <input type="button" value="hello1" id = "mybt">
+    <input type="button" value="hello2" id = "mybt1">
+    <input type="button" value="hello3" id = "mybt2">
+
+    <script type="text/javascript">
+        function myFun() {
+            alert("this is a function");
+        }
+
+        //第一步：先获取这个对象（document是全部小写的，它是一个内置对象 可以直接使用，这个document表示整个HTML界面）
+        var btObj = document.getElementById("mybt");
+        //第二步：给按钮对象的click属性赋值
+        btObj.onclick = myFun;  //注意！千万不能写成btObj.onclick = myFun();  这是错误的写法
+                                //这行代码的含义是，将回调函数myFun注册到click事件上
+        <!--===========================================================================================-->
+
+        var bt1 = document.getElementById("mybt1");
+        bt1.onclick = function () {             //这个函数没有名字，又称为匿名函数，匿名函数也是一个回调函数
+            alert("这是一个匿名函数");          //这个函数在页面打开的时候就被注册上了，但是不会调用，只有在click事件发生后才会被调用
+        }
+
+
+        <!--===========================================================================================-->
+        document.getElementById("mtbt2").onclick = function () {
+            alert("这是最常用的方法")
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

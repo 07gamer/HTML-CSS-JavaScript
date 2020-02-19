@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML_18的另一种写法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //1.页面加载的过程中，函数a注册给了load属性
+        //2，页面加载完毕后，load时间发生了，此时执行回调函数a
+        //3，当回调函数a执行的过程中，把b寒湖注册给了id = “btn”的click事件
+        //4，当id = “btn”的节点发生了click时间之后，b函数被调用执行、
+
+        window.onload = function () {//这个函数称为回调函数a
+            document.getElementById("btn").onclick = function () {//这个函数称为回调函数b
+                alert("hello js  ............")
+            }
+        }
+    </script>
+
+    <input type="button" value="hello" id="btn">
+</body>
+</html>
