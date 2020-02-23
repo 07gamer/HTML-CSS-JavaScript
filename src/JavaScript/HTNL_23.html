@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS中的控制语句</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        if  switch while do..while for break for..in  with
+         */
+
+        //JS中创建数组,数组中元素的类型随意
+        var arr = [1,"abc",false,3.14];
+
+        //遍历数组
+/*
+        for(var i = 0; i <=arr.length; i++){
+            alert(arr[i])
+        }
+*/
+
+        //for..in 遍历数组
+/*
+        for (var i in arr){
+            alert(i);
+            alert("======================")
+            alert(arr[i])
+        }
+*/
+
+        //for..in  还可以遍历对象的属性
+/*        User = function (username,psw) {
+            this.username = username;
+            this.psw = psw;
+        }*/
+
+        var u = new User("zhangsan","100001");
+        alert(u.username + u.psw);
+        alert(u["username"] + u["psw"]);
+
+
+        for (var bianliangming in u){
+            alert(bianliangming);
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

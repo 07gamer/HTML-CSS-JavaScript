@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于正则表达式</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            1，什么是正则表达式？有什么用
+            正则表达式：regular expression，主要使用在字符串格式匹配中
+
+            2，正则表达式是一门独立的学科：JS Java C 都有
+            大部分都编程语言都支持RE
+
+            3:需要掌握的内容
+                常见的正则表达式符号要认识
+                简单的正则表达式要会写
+                他人写的要看懂
+                在JS中创建对象
+                        第一种： var reExp = /任意字符串/flags;
+                        第二章你： var reExp = new RegExp("任意字符串",""flags)
+                        关于flags的取值：
+                            g：全局匹配，
+                            i:忽略大小写
+                            m：多行搜索（如果flags前面的字符串写的是正则表达式的话，后面的flags就不能写m）
+                在JS中正则表达式对象有哪些方法
+                        test(字符串):返回true或者false，是否符合正则表达式
+                要能都从网络上找到自己需要的正则表达式，并测试有效性
+         */
+        window.onload = function () {
+            //给按钮绑定click
+            document.getElementById("bt").onclick = function () {
+                var email = document.getElementById("mytext").value;
+                var emailReRxp = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(emailReRxp.test(email)){
+                    document.getElementById("error").innerText = "邮箱地址合法"
+                }else {
+                    document.getElementById("error").innerText = "邮箱地址不合法"
+                }
+            }
+            //给文本框绑定focus
+            document.getElementById("mytext").onfocus = function(){
+                document.getElementById("error").innerText = "";
+            }
+        }
+
+    </script>
+
+    <input type = "text" id="mytext"/>
+    <span id="error" style="color: red; font-size: 12px"></span>
+    <br>
+
+    <input type="button" value="test" id="bt"/>
+</body>
+</html>

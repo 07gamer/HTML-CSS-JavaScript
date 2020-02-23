@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注意！！innerHTML 和 innerText是属性不是方法！</title>
+    <!--innerHTmL innerText的区别：前者会把后面的字符串当成一段HTML代码执行，后者即使后面是一串HTML代码，也会当成字符串执行-->
+
+    <style type="text/css">
+        #div1{
+            background-color: wheat;
+            width: 300px;
+            height: 300px;
+            border: 1px black solid;
+            position: absolute;
+            top: 300px;
+            left: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("bt").onclick = function () {
+                //设置div里面的内容
+                //第一步：获取div对象
+                var divElt = document.getElementById("div1");
+                //第二步：使用innerHTML来设置元素内部内容
+                divElt.innerHTML = "<font color='red'>对不起！用户名不能为空！</font>";
+                //divElt.innerText =  "<font color='red'>对不起！用户名不能为空！</font>";
+            }
+        }
+    </script>
+    <input type="button" value="设置div中的内容" id="bt">
+    <div id="div1"></div>
+</body>
+</html>

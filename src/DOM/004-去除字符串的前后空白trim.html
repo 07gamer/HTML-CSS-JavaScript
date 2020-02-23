@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //低版本IE不支持字符串函数trim() 怎么办？
+        //自己给String类添加一个trim()方法：从中可以领悟到如何多次替换以及复习prototype属性,多次替换replace中使用正则表达式
+        String.prototype.trim = function(){
+            return this.replace(/^\s+/,"").replace(/\s+$/,"")
+        }
+        window.onload = function () {
+            document.getElementById("btn").onclick = function () {
+                //获取用户名
+                var username = document.getElementById("username").value;
+                //去除前后空白
+                username = username.trim();
+                alert(">" + username + "<")
+            }
+        }
+    </script>
+    <input type="text" id="username"/>
+    <input type="button"  value="获取用户名" id ="btn"/>
+</body>
+</html>

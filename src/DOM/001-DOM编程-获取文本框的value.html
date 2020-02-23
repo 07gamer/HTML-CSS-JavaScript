@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取文本框的value</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            1,JS包括三大块：
+                ECMAScript:JS的核心语法（ES规范/ECMA-262标准）
+                DOM: document object model 文档对象模型  对网页当中的节点进行CRUD的过程  heml文档被当成一颗DOM树来看待
+                     var domObject = document.getElementById("id")
+                BOM:browser object model 浏览器对象模型
+                    关闭浏览器窗口，打开一个新的浏览器窗口，后退，前进，浏览器上的地址栏等，都是bom编程
+
+            2，BOM DOM 的区别与联系
+                BOM顶级对象是window
+                DOM顶级对象是document
+                实际上BOM包括DOm
+         */
+
+/*        window,onload = function () {
+            var btObj = window.document.getElementById("mybt");
+            alert(btObj);//[object HTMLInputElement]
+        }*/
+
+        window.onload = function () {
+            var btObj = document.getElementById("getname");
+            btObj.onclick = function () {
+/*                var nameObj = document.getElementById("username");
+                //不能写成nameObj.value()
+                alert(nameObj.value);*/
+                alert(document.getElementById("username").value);
+
+                //也可以修改value
+                document.getElementById("username").value = "这样九修改了文本框的value属性"
+            }
+        }
+    </script>
+
+    <!--
+    <input type="button" value="hello" id = "mybt"/>
+    -->
+    <input type="text" id="username"/>
+    <input type="button" value="获取文本框信息" id="getname">
+
+
+    <!--获取文本框value的另一种方式-->
+    <!--onblur是失去焦点事件  this表示当前input节点对象-->
+    <input type="text" onblur="alert(this.value)">
+</body>
+</html>
