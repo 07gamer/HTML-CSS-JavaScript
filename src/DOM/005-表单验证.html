@@ -113,16 +113,29 @@
                      //emailErrorSpan.value = "不合法"
                  }
              }
+
+            //给鼠标绑定鼠标单击事件
+             var submtiBtnElt = document.getElementById("submitBt");
+             submtiBtnElt.onclick = function () {
+                 //当所有表单合法时提交
+                 if(合法){
+                     //获取表单对象
+                     var userformElt = document.getElementById("userform");
+                     //提交表单
+                     userformElt.submit();
+                 }
+             }
+
          }
     </script>
 
     <!--表单提交一般使用post而不是使用get 但是为了测试方便 这里使用get-->
-    <form action="hettp://localhost8080/jd/save" method="get"><br>
+    <form id= "userform" action="hettp://localhost8080/jd/save" method="get"><br>
         用户名<input type="text" name="username" id = 'username'><span id="usernameError"></span><br>
         密码<input type="text" name="userpsw" id="userpsw"><span id="pswError"></span><br>
         确认密码<input type="text" name="userpsw1" id="userpsw1"><br>
         邮箱<input type="text" name="enmail" id="email"><span id="emailError"></span><br>
-        <input type="submit" value="注册"><br>
+        <input type="button" value="注册" id="submitBt"><br>
         <input type="reset" value="重置">
     </form>
 </body>

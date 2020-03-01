@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示网页时钟</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        *
+        * JS中有一个内置类Date，可以用来获取时间或者日期
+        *
+        * */
+
+        //获取当前时间
+        var time = new Date();
+        document.write("转换前：" + time)
+        document.write("<br>")
+
+        //转换成当前语言环境的时间
+        var nowTime = time.toLocaleString();
+        document.write("转换后：" + nowTime)
+
+        //若以上格式不是自己想要的可以自己写
+        var t = new Date();
+        var year = t.getFullYear();//返回几几年
+        var month = t.getMonth() + 1;//返回0—11月
+        var day = t.getDate();
+        var dayOfWeek = t.getDay();//获取一周中的第几天(0-6)
+
+        document.write(year + "年" + month + "月" + day + "日")
+        document.write("<br>")
+        //怎么获取从1970。1.1 00：00：00 到系统当前时间的毫秒数
+        var times = t.getTime();
+        document.write(times)
+
+        //一般会使用毫秒数当做时间戳
+        document.write(new Date().getTime())
+
+        document.write("<br>")
+
+
+
+
+        function star() {
+            //每隔一秒调用一次函数
+            //这个v前面没有加var 是一个全局变量
+            v = window.setInterval("displayTime()",1000)//这行代码有一个返回值，这是一个可以传递给window.clearInterval，可以让计时器停止
+        }
+        function displayTime() {
+            var time = new Date();
+            var now = time.toLocaleString();
+            document.getElementById("d1").innerHTML = now;
+        }
+
+        function stop() {
+            //停止计时器
+            window.clearInterval(v)
+        }
+
+
+    </script>
+
+
+    <input type="button" value="显示系统时间" onclick="star()">
+    <input type="button" value="时间停止" onclick="stop()">
+    <br>
+    <div id="d1"></div>
+</body>
+</html>

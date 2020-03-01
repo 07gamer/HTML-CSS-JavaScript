@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--第二种使用JS写-->
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var proElt = document.getElementById("pro")
+
+            //给元素添onchange属性
+            proElt.onchange = function () {
+                alert(proElt.value)
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <!--只需要一行代码   onchange="alert(this.value)"   -->
+
+    <select onchange="alert(this.value)">
+        <option value="">请选择省份</option>
+        <option value="001">河北</option>
+        <option value="002">河南</option>
+        <option value="003">北京</option>
+    </select>
+
+
+    <!--第二种写法-->
+    <select id="pro">
+        <option value="">请选择省份</option>
+        <option value="001">河北</option>
+        <option value="002">河南</option>
+        <option value="003">北京</option>
+    </select>
+</body>
+</html>
