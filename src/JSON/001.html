@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            1什么是JSON，有什么用
+                JavaScript Object Notation，简称JSON  是一种数据交换格式。在JS中以对象的形式存在
+
+            2，JSON最主要的作用就是进行数据交换，这是一种标准的数据交换格式，特点就是体积小，容易解析
+
+            3，在实际开发中有两种数据交换格式，一种是JSON，一种是XML
+            XML体积大，解析麻烦，但是语法严谨，一般用在金融行业
+
+            4,JSON语法格式
+            var jsonObj ={
+                "属性名" ：属性值，
+                "属性名" ：属性值，
+                "属性名" ：属性值，
+                "属性名" ：属性值
+
+            }
+         */
+
+        //创建JSON对象(又被称作无类型对象，轻巧，体积小，容易解析)
+        var stu = {
+            "sno" : "1001",
+            "sname" : "zhangsan",
+            "sex" : "男"
+        }
+
+        //访问JSON
+        alert(stu.sno + stu.sname + stu.sex)
+
+        //JSON数组
+        var studens = [
+            {"sno" : "1002", "sname" : "name1", "sex" : "男"},
+            {"sno" : "1003", "sname" : "name2", "sex" : "男"},
+            {"sno" : "1004", "sname" : "name3", "sex" : "男"}
+        ];
+
+        //遍历数组
+        for (var i = 0; i< studens.length; i++){
+            var stuObj = studens[i]
+            alert(stuObj.sno + stuObj.sname + stuObj.sex)
+        }
+    </script>
+</body>
+</html>

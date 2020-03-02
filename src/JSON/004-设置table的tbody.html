@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var data = {
+            "total" : 5,
+            "emps" : [
+                {"empnum" : "1001","ename":"simith","sal" : 800},
+                {"empnum" : "1002","ename":"zs","sal" : 1800},
+                {"empnum" : "1003","ename":"uzi","sal" : 444},
+                {"empnum" : "1004","ename":"mata","sal" : 900},
+                {"empnum" : "1005","ename":"rooki","sal" : 4800}
+            ]
+        };
+
+        <!--希望把这些数据展现在table当中-->
+        window.onload = function () {
+            var disElt = document.getElementById("display");
+            disElt.onclick = function () {
+               var emps = data.emps;
+               var html = ""
+               for(var i = 0; i<emps.length; i++){
+                   var emp = emps[i];
+                   html +="<tr>";
+                       html +="<td>";
+                       html += emp.empnum;
+                       html +="</td>";
+
+                       html +="<td>";
+                       html +=emp.ename;
+                       html +="</td>";
+
+                       html +="<td>";
+                       html += emp.sal;
+                       html += "</td>";
+
+                   html +="</tr>";
+
+               }
+
+               document.getElementById("emptbody").innerHTML = html;
+               document.getElementById("count").innerHTML = data.total;
+            }
+        }
+
+    </script>
+
+    <input type="button" value="显示员工信息列表" id="display" onclick="">
+    <h2>员工信息列表</h2>
+    <hr>
+    <table border="1px" width="50%">
+        <tr>
+            <th>员工编号</th>
+            <th>员工名字</th>
+            <th>员工薪资</th>
+        </tr>
+
+        <tbody id="emptbody">
+            <!--<tr>
+                <td>1001</td>
+                <td>smith</td>
+                <td>800</td>
+            </tr>
+
+            <tr>
+                <td>1001</td>
+                <td>smith</td>
+                <td>800</td>
+            </tr>
+
+            <tr>
+            <td>1001</td>
+            <td>smith</td>
+            <td>800</td>
+        </tr>-->
+
+        </tbody>
+    </table>
+    总共<span id="count">0</span>条数据
+</body>
+</html>

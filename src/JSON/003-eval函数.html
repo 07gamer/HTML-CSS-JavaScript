@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        /*
+        eval函数的左右是将一段字符串当成JS代码解释执行
+         */
+
+        window.eval("var i = 100")
+        alert(i)
+
+        //Java连接数据库，查询数据之后，将数据在Java程序中拼接成JSON格式的字符串，将JSON格式的字符串相应到浏览器
+        //换句话说，浏览器只是接收一个JSON格式的字符串，所以这时候就要使用eval函数，将JSON格式的字符串转换为JSON对象
+
+        //java发过来的JSON格式的字符串
+        var fromJava = "{\"name\" : \"zs\", \"psw\" : \"1001\"}";
+
+        //将以上的字符串转换为JSON对象
+        window.eval("var obj"+fromJava)
+        alert(obj.name + obj.psw)//在前端取数据
+
+    </script>
+</body>
+</html>

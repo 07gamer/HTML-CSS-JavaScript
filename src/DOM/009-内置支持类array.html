@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //数组是中括号
+        var array = [];
+        var array2 = [1,"tr",true];
+        document.write(array2.length)//3
+
+        //会不会下标越界？  不会 数组会自动扩容，没有的定义的都是undefined
+        array2[5] = "999";
+
+        //数组遍历（重要）
+        for(var i = 0; i < array2.length;i++){
+            document.write(array2[i] + "<br>")
+        }
+
+/*        //另一种创建数组的方式,不常用
+        var a = new Array();
+        alert(a.length)//0
+
+
+        var a = new Array(3); //3表示长度
+        alert(a.length)//3
+
+
+        var a = new Array(3,2); //超过一个参数就代表数组中的元素
+        alert(a.length)//2*/
+
+        var a = [1,2,3,4,5]
+        var str = a.join("-")
+        alert(str)//连接数组中的元素  1-2-3-4-5
+
+        a.push(10); //表示在数组末尾添加元素
+
+        var end = a.pop(); //将数组的末尾元素弹出，数组长度减1。JS中的数组可以自动模拟栈数据结构，先进后出，后进先出
+
+        //数组翻转
+        var newA = a.reverse();
+    </script>
+</body>
+</html>

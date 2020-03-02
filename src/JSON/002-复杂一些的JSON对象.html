@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var user = {
+            "userno" :1001,
+            "username" : "zs",
+            "isvip" : false,
+            "add" :{
+                "city" : "beijing",
+                "street" : "大兴",
+                "cityCode" :"10086"
+            },
+            "hoby" : ["smoke","drink","tt"]
+        };
+
+        //访问人名以及居住的街道号
+        alert(user.username + "居住街道号"+user.add.cityCode);
+
+        //请设计一个JSON格式的数据，这个数据可以描述整个班级中每个学生的信息以及总人数信息
+        var classStu = {
+            "totalNum" : 5,
+            "student" : [
+                {"name" : "zs", "num" :1001},
+                {"name" : "ls", "num" :1002},
+                {"name" : "ww", "num" :1003}
+
+            ]
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
