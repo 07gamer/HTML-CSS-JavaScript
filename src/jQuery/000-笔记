@@ -1,0 +1,50 @@
+dom对象：
+    1，在浏览器加载网页的时候，由浏览器负责创建的
+    2，一个html标签称作一个dom对象
+    3，可以通过管理dom对象，来关联html标签中属性的操作
+
+jq对象：
+    1，是 jQuery函数 $() 创建的
+    2，jQuery对象就是一个数组
+    3，jQuery对象中存放的本次定位的dom对象
+    4）可以通过jQuery中的功能函数来快速的对定位的dom对象进行相关的操作管理
+
+jQuery对象与dom对象转换
+    1，如何将jQuery对象转换成dom对象
+        for(var i=0; i<$obj.length; i++){
+            var domObj = $obj[i]
+        };
+
+    2,如何将dom对象转换成jQuery对象
+        var $obj = $(domObj)         //$(domObj) 是一个以domObj为参数的函数
+
+    3，jQuery对象和dom对象之间的属性和函数不能彼此调用
+
+
+================================================================================================================================
+                        jQuery选择器语法
+一。什么是选择器语法
+        1，选择器语法就是dom对象进行定位的条件，比如根据id定位，根据标签类型名进行定位
+        2，jQuery中只有三种选择器
+
+二。基本选择器
+        1，定位条件：可以根据id，标签类型名，标签采用样式选择器
+        2，使用：必须放在jQuery函数中
+                1）$("#id编号")  等价于==》   document.getElementById("id编号")
+                                 根据id编号定位到dom对象，并保存到一个数组中并返回，这个数组就是jQuery对象
+
+                2）$(".样式选择器名称")   等价于==》   document.getElementByClassName("样式选择器名称")
+                                          将使用了指定的样式选择器的dom对象，并保存到一个数组中并返回，这个数组就是jQuery对象
+
+
+                3）$("标签类型名")    document.getElementByTagName("标签类型名")
+                                        将所有使用了指定类型的标签关联的dom对象，并保存到一个数组中并返回，这个数组就是jQuery对象
+                 举例
+                 $("input")
+                 <input type = "button" value = "hello">
+                 <input type = "button" value = "hello">
+                 <input type = "button" value = "hello">
+
+
+
+
