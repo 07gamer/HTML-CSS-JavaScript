@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		
+		<script type="text/javascript">
+			// 选择文本输入框并输出用户输入的值
+			function fun01(){
+				var name = $(":text").val();
+				alert(name)
+				/* 
+				 val() 是jq中的功能函数，使用时候只读取第一个对象的value
+				 */
+			}
+			
+			//选择密码输入框并输出用户输入的密码
+			function fun02(){
+				var psw = $(":password").val();
+				alert(psw);
+			}
+			
+			//选择单选框value的属性值
+			function fun03(){
+/* 				//alert($(":radio").val())  //这样只能取出第一个value
+				//转换成js变量
+				var js = $(":radio");
+				//遍历数组			
+				for (var i = 0; i < js.length; i++) {
+					var domObj = js[i];
+					myFun(i,domObj);
+				} */
+				
+				//jq中有封装好的for循环
+				/* 
+				   each(处理函数)     每次取出一个元素的下标和对应的值放入到处理函数内，
+				 */
+				$(":radio").each(myfun);
+			}
+			
+			function myFun(index,dom){//这个函数作为each的处理函数,第一个参数表示下标,第二个参数表示对象,位置不能调换
+				alert("第"+index+"个元素的下标是"+dom.value)
+			}
+			
+			//选择文件上传框并输出用户选择的文件
+			function fun04(){
+				alert($(":file").val());
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<!-- 定义表单 -->
+		<form>
+			用户名： <input type="text" name="username" /><br><br>
+			密码：	<input type="password" name="password" /><br><br>
+			性别：<input type="radio" name="gender" value="1" checked />男
+				  <input type="radio" name="gender" value="0"  />女<br><br>
+			简介：<input type="file" name="photo" /><br><br>
+			兴趣：<input type="checkbox" name="interest" value="music" />音乐
+				 <input type="checkbox" name="interest" value="eat" />吃
+				 <input type="checkbox" name="interest" value="drink" />喝
+				 <br><br>
+				 <input type="submit" value="提交" />
+		</form>
+		<br><br>
+		
+		
+		<!-- 定义按钮 -->
+
+		<button id="btn01" onclick="fun01()" >选择文本输入框并输出用户输入的值</button>
+		<button id="btn02" onclick="fun02()">选择密码输入框并输出用户输入的密码</button>
+		<button id="btn03" onclick="fun03()">选择单选框value的属性值</button>
+		<button id="btn04" onclick="fun04()">选择文件上传框并输出用户选择的文件</button>
+		<button id="btn05">选择复选框并输出用户选择的值</button>
+	</body>
+</html>

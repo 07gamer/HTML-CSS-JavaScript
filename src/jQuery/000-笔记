@@ -39,12 +39,184 @@ jQuery对象与dom对象转换
 
                 3）$("标签类型名")    document.getElementByTagName("标签类型名")
                                         将所有使用了指定类型的标签关联的dom对象，并保存到一个数组中并返回，这个数组就是jQuery对象
-                 举例
+                 举例 选择所有input标签
                  $("input")
                  <input type = "button" value = "hello">
                  <input type = "button" value = "hello">
                  <input type = "button" value = "hello">
 
+				4)$("*") *为通配符，是将浏览器中所有dom对象保存到一个数组中并返回，这个被返回的数组就是jq对象
+				
+				5)$("条件1，条件2") 组合选择器，满足条件1或者条件2的都会被选中。
+									类似于数据库中 select * from xxx where sal =3000 or job = "manager";
 
+三。层级选择器
+				1）定位条件，更具标签的父子关系或者兄弟关系来定位
+				2）标签之间的关系：
+								父子关系：也就是包含关系，如下，td是tr的直接子标签，input是td的直接子标签。input是tr的间接子标签
+											<tr>
+												<td>
+													<input type="checkbox">
+												</td>
+											
+											</tr>
+								兄弟关系：两个标签拥有相同的父标签，且他们之间没有父子关系
+										d1,d2,d3就是兄弟关系，且d1>d2>d3
+										<body>
+											<div>d1</dvi>
+											<div>d2</dvi>
+											<div>d3</dvi>
+										</body>
+				
+				3)使用方法，
+						1） $("定位父标签条件>定位子标签的条件")：定位父标签下的 直接子标签。
+						2） $("定位父标签条件 定位子标签的条件")：定位父标签下的  直接子标签 和   间接子标签。
+							（上面的这两个条件之间用空格分开）
+							
+						3） $("定位当前标签~定位兄弟标签的条件")：定位当前标签后面，所有满足条件的兄弟标签	
+						4） $("定位当前标签+定位兄弟标签的条件")：定位当前标签后面紧邻的，并且满足所有条件的兄弟标签
+						5） $("定位当前标签").siblings("定位兄弟标签条件")：定位当前标签前面与后面所有满足条件的兄弟标签
+						
+	
+四，input标签选择器
+				1）input标签的组成
+						<input type="text">
+						<input type="password">
+						<input type="radio">
+						<input type="checkbox">
+						<input type="button">
+						<input type="submit">
+						<input type="reset">
+				2)input标签作用：浏览器像网站发送请求时所携带的请求参数
+				
+				3）使用：$(":type属性的名字")
+						$(":button")  定位页面中所有的button
+						$(":checkbox") 定位所有的checkbox
+						$(":table")  什么都定位不到，或者说这种写法是错误的，因为没有<input type="table">这种说法
+						
+						
+==================================================================================================================================
+										jQuery中的过滤器
+						
+						
+一，过滤器语法介绍
+				1）作用：对已经定位到jq对象中的dom对象，进行二次过滤筛选的
+				2)过滤器不能独立使用，必须声明在选择器的后方
+				3）过滤器有六中，三种常见
+				4）过滤器可以结合使用层层过滤
 
+二，基本过滤器
+				1)过滤器条件：根据已经定位的dom对象在jq中对象中存储位置进行二次过滤。
+				2）使用方法：
+							$("选择器:first")  返回满足选择器的第一个对象 
+												$(":button:first") 定位页面中的第一个button
+							
+							$("选择器:last")  返回满足选择器的最后一个对象
+												$(":button:last") 定位页面中最后一个button
+							
+							$("选择器:eq(index)") 返回满足选择器的下标为index对象（从0开始）
+												$(":div:eq(2)") 定位页面中的第3个div
+							
+							$("选择器:lt(index)") 返回选择器选择的指定位置之前的所有对象
+												$(":checkbox:lt(2)")  定位页面中前两个checkbox
+												
+							$("选择器:gt(index)") 返回选择器选择的指定位置之后的所有对象
+												$(":button:gt(2)")  定位页面中位置在第三个button之后的所有button
+三，基本属性过滤器
+				1）过滤条件：根据标签在声明时是否为指定属性进行手动过滤
+							根据当前标签的属性内容与指定内容关系进行过滤
+				2）例子：
+							<div>div1</div>
+							<div name = "two">div2</div>
+							<div name = "three">div3</div>
+							问题1：哪个div中没有name?    答：每个标签都有那么属性，只是第一个div中name属性是一个默认值（空字符串）
+				3）使用：
+							1) $("选择器[属性名]")  选择满足定位条件的并且在声明时为指定属性进行手动赋值的don对象
+													以上面的三个div为例  $("div[name]")  是选取了div2和div3
+													
+							2) $("选择器[属性名 = '指定值']")  选择满足定位条件的并且属性值等于指定内容的dom对象
+															以上面的三个div为例  $("div[name ='two']") 选择了div2
+																				$("div[name ='']")  选择了div1
+																				$("div[name !='six']") 选择了div1 div2 div3
+																				
+							3）$("选择器[属性名 ^= 'i']")选择满足定位条件的并且属性值以i为开头的dom对象
+															$("div[name ^='t']") 选择了div2 div3
+															
+							4）$("选择器[属性名 $= 'i']")选择满足定位条件的并且属性值以i为结尾的dom对象
+															$("div[name $='e']")  选择了div3
+							5） $("选择器[属性名 *= 'i']")选择满足定位条件的并且属性值包含i的dom对象
+															$("div[name *='r']")   	选择div3
+							
+							6) $("选择器:[属性名1][属性名2 *= '值'][属性名3 ^= '值']")
 
+四，工作状态属性过滤器
+				1.html标签属性分类
+							1）基本属性，绝大多数标签都有的属性，id属性，name，title，rowspan
+							2）样式属性，背景，字体，边框
+							3）value属性，只存在于表单域的标签中（input，select，textarea）
+							4）工作状态属性值，只存在表单域标签【checked，disable，selected】
+							5）监听事件属性，onclik，onchange
+				2.使用：
+							1) $("选择器:enabled")	满足条件的且处于可用状态的dom对象
+													例子：$(":button:enable") 选择所有可用的button
+													
+							2) $("选择器:disabled")	满足条件的且处于不可用状态的dom对象
+													例子：$(":button:enable") 选择所有不可用的button
+													
+							3）$("选择器:checked") 	满足条件的并且处于选中状态的dom对象（radio checkbox）
+													例子：$(":checkbox:checked:first") 选中页面中第一个被选中的checkbox
+							4）$("选择器:selected")	满足条件的并且处于选中状态的dom对象（option）
+													例子：$("selected>option:selected") 选择下拉列表中第一个选项
+													
+=======================================================================================================================
+								jquery对象中的功能函数
+								
+一.show() hide()
+				show()  负责让所选中的对象显示 style="diplay:block"
+				hide()  负责让所选中的对象隐藏 style="display:none"
+				
+				
+二.romvve() empty()
+				empty()  将当前标签的子标签进行删除
+				remove() 将当前标签和子标签一起删除
+				
+三，append() appendTo()	作用都是操作标签中的innerHtml。为当前标签添加子标签  
+				append()  父标签.append(子标签)   父亲给自己找了一个儿子
+				appendTo()  子标签.appednTo(父标签) 儿子给自己找了爹
+	
+四，属性操作函数
+				1.val函数 value
+					1)$obj.val(): 读取jQuery对象中第一个dom对象的[value]
+					2)$obj.val("值"):为jQuery对象中所有的dom对象的[value属性]进行统一赋值
+					
+				2.prop函数：工作状态属性 checked，disable，selected
+					1）$obj.prop("checked",true):为jq对象中所有dom对象的checked属性赋值为true
+					2）$obj.prop("checked"):读取jq对象中第一个dom对象的checked属性
+					
+				3.attr函数：基本属性 id name title rowspan
+					1) $obj.attr("name","ck") 将jq对象中所有的dom对象的name属性统一赋值为ck
+					2）$obj.attr("title") 读取jq对象中第一个dom对象的title属性的值
+				
+				4.text函数：操作属性的innerHtml ，双目标签的文本显示内容
+					1) $obj.text("123") 将jq对象中所有双目标签的文本值变为"123"
+					2) $obj.text() 读取jq对象中所有的dom对象的innerText内同拼接为一个字符串返回
+=============================================================================================================
+							jq中的事件绑定方式
+一.在js中事件绑定方式有两种
+				1.嵌入式的绑定，直接在属性中绑定，
+					缺点：只能为一个标签绑定监听事件
+				2.基于dom的绑定方式  d0cument.getElementByName("bt") 然后进行for循环绑定事件
+					优点是能够一次绑定多个，缺点是比较麻烦
+
+二.jq中事件绑定方式
+				1.$obj.jquery监听事件函数
+					例子：$(obj).click(fun1)   这就为jq对象中所有对象绑定了事件处理函数
+					
+					onclik(fun)----$(obj)clik(fun)
+					onchange(fun)----$(obj)change(fun)
+					onmouseover(fun)----$(obj)mouseover(fun)
+				
+				2.$obj.bind("jq监听事件函数名",处理函数) 以这种绑定的监听事件是可以接触的
+				  $obj.unbind("jq监听事件函数名") 将指定监听时间从dom对象身上移除
+				  $obj.unbind() 将所有监听事件从dom身上移除
+					

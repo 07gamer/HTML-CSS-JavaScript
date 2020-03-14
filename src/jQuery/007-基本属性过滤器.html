@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery过滤选择器</title>
+    <meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		//选择给title属性赋值的的div元素
+		function fun01(){
+			$("div[title]").css("background-color","red")
+		}
+		
+		//选择title属性值为test的div元素
+		function fun02(){
+			$("div[title='test']").css("background-color","yellow")
+		}
+		
+		//选择title属性值不为test的div元素
+		function fun03(){
+			$("div[title!='test']").css("background-color","yellow")
+		}
+		
+		//选择title属性以'te'开头的div元素
+		function fun04(){
+			$("div[title^='test']").css("background-color","yellow")
+		}
+		
+		//选择title属性包含'es'的并且含有id属性的div元素
+		function fun07(){
+			$("div[title *='es'][id]").css("background-color","yellow")
+		}
+		
+		//选择页面中title属性包含es的第一个div(多种过滤器混合使用)
+		function fun08(){
+			$("div[title *= 'es']:first").css("background-color","yellow")
+		}
+		
+	</script>
+   
+    <style type="text/css">
+        div{
+            background: gray;
+            width: 200px;
+            height: 100px;
+        }
+        .son{
+            background: cyan;
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <div id="one" title="test">zero</div>
+    <div class="c02" title="myTest">one</div>
+    <div>
+        two
+        <div id="three" class="son">three</div>
+        <div title="test" class="son">four</div>
+    </div>
+    <div title="testCase">five</div>
+    <div>six</div>
+    <span>我是span标签</span>
+    <br><br>
+    <!--定义按钮-->
+    <input type="button" id="btn01" value="选择给title属性赋值的的div元素" onclick="fun01()"/>
+    <input type="button" id="btn02" value="选择title属性值为test的div元素" onclick="fun02()"/>
+    <input type="button" id="btn03" value="选择title属性值不为test的div元素" onclick="fun03()"/>
+    <input type="button" id="btn04" value="选择title属性以'te'开头的div元素" onclick="fun04()"/>
+    <input type="button" id="btn05" value="选择title属性以'st'结尾的div元素"/>
+    <input type="button" id="btn06" value="选择title属性包含'es'的div元素"/>
+    <input type="button" id="btn07" value="选择title属性包含'es'的并且含有id属性的div元素" onclick="fun07()"/>
+	<input type="button" id="btn07" value="选择页面中title属性包含es的第一个div" onclick="fun08()"/>
+</body>
+</html>

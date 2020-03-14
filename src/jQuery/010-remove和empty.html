@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script>
+			//删除大臣1的所有元素
+			function fun01(){
+				$("#one").remove();
+			}
+			
+			//删除大臣2的所有子元素
+			function fun02(){
+				$("#two").empty();
+			}
+			
+		</script>
+		
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+				font-size: 30px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		大臣1：
+		<select id="one">
+			<option value="">大儿子</option>
+			<option value="">二儿子</option>		
+		</select>
+		
+		大臣2：
+		<select id="two">
+			<option value="">大儿子</option>
+			<option value="">二儿子</option>		
+		</select>
+
+		<input type="button"  value="大臣1满门抄斩!" onclick="fun01()"/>
+		<input type="button"  value="大臣2断子绝孙!" onclick="fun02()"/>
+	</body>
+</html>

@@ -3,16 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	<style type="text/css">
+		div{
+			background-color: gray;
+			width: 200px;
+			height: 100px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		//id选择器 $("#id编号")
+		function fun01(){
+			//css()函数:是jq对象中的功能函数,负责将jq对象中所有dom对象的样式属性(背景色，边框等)统一赋值
+			$("#one").css("background-color","red")
+		}
+		
+		//类选择器	$(".类名")
+		function fun02(){
+			$(".two").css("background-color","green")
+		}
+		
+		//根据标签类型定位(html选择器)  $("标签名")  $("div")表示所有div元素,可以换成span等
+		function fun03(){
+			$("div").css("background-color","blue")
+		}
+		
+		//选择所有dom对象 $("*")
+		function fun04(){
+			$("*").css("background-color","yellow")
+		}
+		
+		//组合选择器 $("条件1","条件2")   区别于混合选择器 $("条件1,条件2")
+		function fun05(){
+			$("#one","span").css("background-color","cyan")
+		}
+		
+	</script>
 </head>
 <body>
     <!--定义被选择的对象-->
     <div id="one" class="two"></div><br>
     <div class="two"></div><br>
     <div></div><br>
+	
     <span>我是span标签</span>
 
     <br>
     <!--定义按钮-->
-    <input type="button" id="bt" value="选择id为one的元素" >
+    <input type="button" id="bt01" value="选择id为one的元素"  onclick="fun01()">
+	<input type="button" id="bt02" value="选择class为tow的元素" onclick="fun02()"/>
+	<input type="button" id="bt03" value="选择所有div元素" onclick="fun03()"/>
+	<input type="button" id="bt04" value="选择所有元素" onclick="fun04()"/>
+	<input type="button" id="bt05" value="选择id为one的和所有span元素" onclick="fun05()"/>
 </body>
 </html>

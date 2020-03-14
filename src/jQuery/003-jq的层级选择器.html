@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script>
+			//选择body中所有div子标签  $("body div")  并不是$("body，div")
+			function fun01(){
+				$("body div").css("background-color","pink");
+			}
+			
+			//选择body下的直接div子标签
+			function fun02(){
+				$("body>div").css("background-color","red");
+			}
+			
+			//选择id为one的 下一个 兄弟div 
+			function fun03(){
+				$("#one+div").css("background-color","yellow");
+			}
+			
+			
+			//选择id为two的 所有后面的兄弟div
+			function fun04(){
+				$("#two~div").css("background-color","cyan");
+			}
+			
+			//选择id为two的所有兄弟div
+			function fun05(){
+				$("#two").siblings("div").css("background-color","green");
+			}
+			
+		</script>
+	</head>
+	<body>
+		<!-- 定义被选择对象 -->
+		<div id="one">我是div01</div>
+		<div id="two">我是div02</div>
+		
+		<div>
+			我是div03
+			<div class="son">我是div03下的子div</div>
+			<div class="son">我是div03下的子div</div>			
+		</div>
+		
+		<div>我是div04</div>
+		
+		<span>我是span标签</span><br>
+		
+		
+		<!-- 定义选择按钮 -->
+		<input type="button" id="bt01" value="选择body中所有div子标签" onclick="fun01()"/>
+		<input type="button" id="bt02" value="选择body下的直接div子标签" onclick="fun02()"/>
+		<input type="button" id="bt03" value="选择id为one的 下一个 兄弟div " onclick="fun03()"/>
+		<input type="button" id="bt04" value="选择id为two的 所有后面的兄弟div" onclick="fun04()"/>
+		<input type="button" id="bt05" value="选择id为two的所有兄弟div" onclick="fun05()"/>
+		
+	</body>
+</html>
